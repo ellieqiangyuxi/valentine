@@ -292,7 +292,7 @@
   .letter-card {
     position: relative;
     width: min(520px, 90vw);
-    min-height: 600px;
+    max-height: 90vh;
     background: var(--warm-white);
     border-radius: 3px;
     padding: 60px 50px;
@@ -302,7 +302,8 @@
     transform: translateY(60px) scale(0.9);
     opacity: 0;
     transition: all 1s cubic-bezier(0.23, 1, 0.32, 1) 0.3s;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .letter.visible .letter-card {
@@ -418,13 +419,61 @@
   .letter.visible .letter-body .line:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 2.0s; }
   .letter.visible .letter-body .line:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 2.3s; }
   .letter.visible .letter-body .line:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 2.6s; }
+  .letter.visible .letter-body .line:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 2.9s; }
+  .letter.visible .letter-body .line:nth-child(7) { opacity: 1; transform: translateY(0); transition-delay: 3.2s; }
+
+  /* ── Family Photo ── */
+  .letter-photo {
+    text-align: center;
+    margin: 8px auto 32px;
+    opacity: 0;
+    transform: translateY(15px) rotate(-1.5deg);
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1) 2.8s;
+  }
+
+  .letter.visible .letter-photo {
+    opacity: 1;
+    transform: translateY(0) rotate(-1.5deg);
+  }
+
+  .photo-frame {
+    display: inline-block;
+    padding: 8px 8px 28px 8px;
+    background: white;
+    box-shadow:
+      0 4px 16px rgba(0,0,0,0.1),
+      0 1px 4px rgba(0,0,0,0.08);
+    transform: rotate(1.5deg);
+    transition: transform 0.4s ease;
+  }
+
+  .photo-frame:hover {
+    transform: rotate(0deg) scale(1.02);
+  }
+
+  .photo-frame img {
+    display: block;
+    width: 280px;
+    height: 190px;
+    object-fit: cover;
+    object-position: center 20%;
+    filter: saturate(1.05) contrast(1.02);
+  }
+
+  .photo-caption {
+    font-family: 'Caveat', cursive;
+    font-size: 15px;
+    color: var(--deep-rose);
+    margin-top: 8px;
+    opacity: 0.7;
+  }
 
   .letter-heart {
     text-align: center;
-    margin: 30px 0;
+    margin: 20px 0;
     opacity: 0;
     transform: scale(0.5);
-    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 3s;
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 3.4s;
   }
 
   .letter.visible .letter-heart {
@@ -455,7 +504,7 @@
     text-align: center;
     opacity: 0;
     transform: translateY(10px);
-    transition: all 0.8s ease 3.2s;
+    transition: all 0.8s ease 3.6s;
   }
 
   .letter.visible .letter-sign {
@@ -538,10 +587,19 @@
 
     <div class="letter-body">
       <span class="line">In a world of billions,</span>
-      <span class="line">my heart chose you —</span>
-      <span class="line">not by chance, but because</span>
-      <span class="line">you are the reason it learned</span>
-      <span class="line">what love truly means.</span>
+      <span class="line">你辛苦了</span>
+      <span class="line">You've worked so hard, my love</span>
+      <span class="line">Tu as tellement travaillé dur</span>
+      <span class="line">お疲れ様でした</span>
+      <span class="line">Hai lavorato così tanto</span>
+      <span class="line">Has trabajado tan duro</span>
+    </div>
+
+    <div class="letter-photo">
+      <div class="photo-frame">
+        <img src="family.jpg" alt="Our little family">
+        <div class="photo-caption">Our little family</div>
+      </div>
     </div>
 
     <div class="letter-heart">
